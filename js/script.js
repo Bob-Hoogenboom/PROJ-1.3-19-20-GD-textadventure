@@ -6,51 +6,66 @@ const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
 
-let currentLocation = 4;
+let currentLocation = 340;
 
 let locations = [];
-locations[0] = "kantine";
-locations[1] = "trap";
-locations[2] = "eind";
-locations[3] = "docentenkamer";
-locations[4] = "gang";
-locations[5] = "medialab";
-locations[6] = "toiletten";
-locations[7] = "klaslokaal";
-locations[8] = "examenlokaal";
+locations[340] = "";
+
 
 images = [];
-images[0] = "room0.jpg";
-images[1] = "room1.jpg";
-images[2] = "room2.jpg";
-images[3] = "room3.jpg";
-images[4] = "room4.jpg";
-images[5] = "room5.jpg";
-images[6] = "room6.jpg";
-images[7] = "room7.jpg";
-images[8] = "room8.jpg";
+images[110] = "A-5.jpg";      //dead_end_J
+images[140] = "D-5.jpg";      //dead_end_M
+images[150] = "E-5.jpg";      //
+images[160] = "F-5.jpg";      //dead_end_U
+images[210] = "A-4.jpg";      //
+images[220] = "B-4.jpg";      //
+images[230] = "C-4.jpg";      //dead_end_N
+images[240] = "D-4.jpg";      //
+images[250] = "E-4.jpg";      //
+images[270] = "G-4.jpg";      //dead_end_X
+images[320] = "B-3.jpg";      //
+images[330] = "C-3.jpg";      //
+images[340] = "D-3.jpg";      //start_B
+images[350] = "E-3.jpg";      //
+images[360] = "F-3.jpg";      //
+images[370] = "G-3.jpg";      //
+images[420] = "B-2.jpg";      //
+images[440] = "D-2.jpg";      //Final_Door_K
+images[450] = "E-2.jpg";      //
+images[460] = "F-2.jpg";      //
+images[520] = "B-1.jpg";      //
+images[530] = "C-1.jpg";      //dead_end_G
+images[560] = "F-1.jpg";      //
+images[570] = "G-1.jpg";      //dead_end_R
 
 directions = [];
-directions[0] = ["oost"];
-directions[1] = ["west", "zuid"];
-directions[2] = ["zuid"];
-directions[3] = ["oost"];
-directions[4] = ["noord", "west", "zuid"];
-directions[5] = ["zuid"];
-directions[6] = ["oost"];
-directions[7] = ["noord", "west", "oost"];
-directions[8] = ["noord", "west"];
+directions[110] = ["North"];
+directions[140] = ["North"];
+directions[150] = ["North", "East"];
+directions[160] = ["West"];
+directions[210] = ["East", "South"];
+directions[220] = ["North", "West"];
+directions[230] = ["East"];
+directions[240] = ["North", "South", "West"];
+directions[250] = ["North", "South"];
+directions[270] = ["North"];
+directions[320] = ["North", "East", "South"];
+directions[330] = ["East", "West"];
+directions[340] = ["North", "East", "South", "West"];   //start_B
+directions[350] = ["North", "East", "South", "West"];
+directions[360] = ["East", "West"];
+directions[370] = ["South", "West"];
+directions[420] = ["North", "South"];
+directions[440] = ["South"];                            //Final_Door_K
+directions[450] = ["East", "South"];
+directions[460] = ["North", "West"];
+directions[520] = ["East", "South"];
+directions[530] = ["West"];
+directions[560] = ["East", "South"];
+directions[570] = ["West"];
 
 descriptions = [];
-descriptions[0] = "u staat in een kantine. Hier zitten studenten te eten of computerspelletjes te doen";
-descriptions[1] = "u staat op een trap naar de eerste etage. Om u heen lopen studenten omhoog en omlaag";
-descriptions[2] = "u heeft gewonnen";
-descriptions[3] = "u staat in de lerarenkamer. De leraren eten hier hun lunch of drinken koffie of thee";
-descriptions[4] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
-descriptions[5] = "u staat in het medialab. Hier kan geexperimenteerd worden met bijvoorbeeld virtual reality brillen";
-descriptions[6] = "u staat bij de toiletten";
-descriptions[7] = "u staat in een klaslokaal. De tafels staan recht achter elkaar en voorin is een projector en een smartboard";
-descriptions[8] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
+descriptions[340] = "B";
 
 myInput.addEventListener('keydown', getInput, false);
 
@@ -61,17 +76,17 @@ function getInput(evt) {
     if (inputArray[0] == "ga") {
       if (directions[currentLocation].indexOf(inputArray[1]) != -1) {
         switch (inputArray[1]) {
-          case "noord":
-            currentLocation -= 3;
+          case "North":
+            currentLocation += 100;
             break;
-          case "zuid":
-            currentLocation += 3;
+          case "South":
+            currentLocation -= 100;
             break;
-          case "oost":
-            currentLocation += 1;
+          case "East":
+            currentLocation += 10;
             break;
-          case "west":
-            currentLocation -= 1;
+          case "West":
+            currentLocation -= 10;
             break;
         }
       } else {
@@ -105,7 +120,7 @@ function getInput(evt) {
 function giveLocation() {
   divLocation.innerHTML = locations[currentLocation];
   myDescription.innerHTML = descriptions[currentLocation];
-  imageLocation.src = "media/" + images[currentLocation];
+  imageLocation.src = "Dungeon image/" + images[currentLocation];
   myDirections = "mogelijke richtingen zijn: ";
   for (let i = 0; i < directions[currentLocation].length; i++) {
     myDirections += "<li>" + directions[currentLocation][i] + "</li>";
