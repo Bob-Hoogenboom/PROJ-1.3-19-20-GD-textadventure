@@ -5,12 +5,35 @@ const feedback = document.getElementById('feedback');
 const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
 const myInventory = document.getElementById('inventory');
+const myItem = document.getElementById('item');
 
 let currentLocation = 340;
 
 let locations = [];
+locations[110] = "";
+locations[140] = "";
+locations[150] = "";
+locations[160] = "";
+locations[210] = "";
+locations[220] = "";
+locations[230] = "";
+locations[240] = "";
+locations[250] = "";
+locations[270] = "";
+locations[320] = "";
+locations[330] = "";
 locations[340] = "";
-
+locations[350] = "";
+locations[360] = "";
+locations[370] = "";
+locations[420] = "";
+locations[440] = "";
+locations[450] = "";
+locations[460] = "";
+locations[520] = "";
+locations[530] = "";
+locations[560] = "";
+locations[570] = "";
 
 images = [];
 images[110] = "A-5.jpg";      //dead_end_J
@@ -18,7 +41,7 @@ images[140] = "D-5.jpg";      //dead_end_M
 images[150] = "E-5.jpg";      //
 images[160] = "F-5.jpg";      //dead_end_U
 images[210] = "A-4.jpg";      //
-images[220] = "B-4.jpg";      //
+images[220] = "B-4.jpg";      //                  *****
 images[230] = "C-4.jpg";      //dead_end_N
 images[240] = "D-4.jpg";      //
 images[250] = "E-4.jpg";      //
@@ -31,7 +54,7 @@ images[360] = "F-3.jpg";      //
 images[370] = "G-3.jpg";      //
 images[420] = "B-2.jpg";      //
 images[440] = "D-2.jpg";      //Final_Door_K
-images[450] = "E-2.jpg";      //
+images[450] = "E-2.jpg";      //                 ******
 images[460] = "F-2.jpg";      //
 images[520] = "B-1.jpg";      //
 images[530] = "C-1.jpg";      //dead_end_G
@@ -51,7 +74,7 @@ directions[250] = ["North", "South"];
 directions[270] = ["North"];
 directions[320] = ["North", "East", "South"];
 directions[330] = ["East", "West"];
-directions[340] = ["North", "East", "South", "West"];   //start_B
+directions[340] = ["East", "South", "West"];            //start_B
 directions[350] = ["North", "East", "South", "West"];
 directions[360] = ["East", "West"];
 directions[370] = ["South", "West"];
@@ -66,6 +89,13 @@ directions[570] = ["West"];
 
 descriptions = [];
 descriptions[340] = "B";
+
+itemImage = [];
+itemImage[110] = "DragonUwU.png";                //dead_end_J
+
+item = [];
+item[110] = "dragon";
+
 
 myInput.addEventListener('keydown', getInput, false);
 
@@ -101,6 +131,7 @@ function getInput(evt) {
     if (inputArray[0] == "pak") {
       console.log('ga wat pakken');
       myInput.value = "";
+      directions[340] = ["North", "East", "South", "West"]  //start_B
     }
 
     if (inputArray[0] == "gebruik"){
@@ -127,10 +158,20 @@ function giveLocation() {
   }
   myPossibilities.innerHTML = myDirections;
   myInventory.innerHTML = "uw inventory is leeg";
+showItem(currentLocation);
 }
+
 
 function removeFeedback() {
   feedback.innerHTML = "";
+}
+
+function showItem(currentLocation){
+  if(typeof itemImage[currentLocation] != "undefined")
+  {
+    console.log(itemImage[currentLocation]);
+    myItem.src ="Dungeon image/" + itemImage[currentLocation];
+  }
 }
 
 giveLocation();

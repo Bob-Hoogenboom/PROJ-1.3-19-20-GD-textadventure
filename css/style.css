@@ -3,11 +3,10 @@ body{
 }
 
 .container{
-  width: 500px;
+  width: 400px;
   padding: middle;
   margin: auto;
-
-
+  position: relative;
   color: white;
 }
 
@@ -16,4 +15,11 @@ body{
   color: red;
   font-size: 30px;
   font-weight: bold;
+}
+
+.item
+{
+  position: absolute;
+  left: 50px;
+  top: 150px;
 }
