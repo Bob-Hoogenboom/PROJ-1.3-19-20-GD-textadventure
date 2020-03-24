@@ -35,6 +35,10 @@ locations[530] = "";
 locations[560] = "";
 locations[570] = "";
 
+descriptions = [];
+descriptions[340] = "B";
+descriptions[110] = "YOU FOUND THE LANTERN!";
+
 images = [];
 images[110] = "A-5.jpg";      //dead_end_J
 images[140] = "D-5.jpg";      //dead_end_M
@@ -87,14 +91,11 @@ directions[530] = ["West"];
 directions[560] = ["East", "South"];
 directions[570] = ["West"];
 
-descriptions = [];
-descriptions[340] = "B";
-
 itemImage = [];
-itemImage[110] = "DragonUwU.png";                //dead_end_J
+itemImage[110] = "Lantern.jpg";                //dead_end_J
 
 item = [];
-item[110] = "dragon";
+item[110] = "LIGHT!";
 
 
 myInput.addEventListener('keydown', getInput, false);
