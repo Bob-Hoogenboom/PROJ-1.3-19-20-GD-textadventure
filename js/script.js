@@ -36,7 +36,7 @@ locations[560] = "";
 locations[570] = "";
 
 descriptions = [];
-descriptions[340] = "B";
+descriptions[340] = "";
 descriptions[110] = "YOU FOUND THE LANTERN!";
 
 images = [];
