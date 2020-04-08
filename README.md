@@ -1,8 +1,8 @@
 ## MaQuest
-gamedeveloper :[jouw naam]
+gamedeveloper :[Bob Hoogenboom]
 
 ### Korte omschrijving van de game
-...
+je bent gevangen in een kerker. loop door het doolhof om een lantaarn te vinden en door de donkere uitgang te gaan.
 
 ---
 #### Producten Werkproces
